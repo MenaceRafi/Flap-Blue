@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flappy Bird Game</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #70c5ce;
+    }
+
+    #homepage {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    /* Phone-sized “frame” on desktop */
+    @media (min-width: 600px) {
+      #gameScreen {
+        position: relative;
+        width: 360px;
+        height: 640px;
+        margin: 20px auto;
+        background-color: #70c5ce;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      }
+    }
+
+    /* Full-screen on narrow/mobile viewports */
+    @media (max-width: 599px) {
+      #gameScreen {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+      }
+    }
+
+    #gameCanvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: #70c5ce;
+      border: 1px solid black;
+    }
+
+    #score {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 20px;
+      color: white;
+      pointer-events: none;
+    }
+
+    #compliment {
+      font-size: 18px;
+      color: white;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 4px 8px;
+      border-radius: 4px;
+
+      /* subtitle positioning */
+      position: absolute !important;
+      bottom: 10px !important;
+      left: 50% !important;
+      top: auto !important;
+      transform: translateX(-50%) !important;
+
+      display: none;
+      pointer-events: none;
+      white-space: nowrap;
+      opacity: 0.8;
+    }
+
+    /* New styles for game over screen */
+    #gameOverScreen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+      display: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    #scoreDisplay {
+      font-size: 48px;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    #playAgainButton {
+      width: 200px;
+      height: 60px;
+      background-image: url('https://i.postimg.cc/HxrxJnqB/play-again-button.png');
+      background-size: cover;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="homepage">
+    <h1>Flappy Bird Game</h1>
+    <button onclick="startGame()">Start Game</button>
+    <button onclick="viewHighScore()">View High Score</button>
+  </div>
+
+  <div id="gameScreen" style="display:none;">
+    <canvas id="gameCanvas" width="480" height="480"></canvas>
+    <div id="score">Score: 0</div>
+    <div id="compliment"></div>
+  </div>
+
+  <!-- Game over screen with score and play again button -->
+  <div id="gameOverScreen">
+    <div id="scoreDisplay">Score: 0</div>
+    <button id="playAgainButton" onclick="startGame()"></button>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

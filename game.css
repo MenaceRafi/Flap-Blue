@@ -1,0 +1,89 @@
+/* styles.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #70c5ce;
+}
+
+#homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Desktop: simulate a phone frame at 360×640 */
+@media (min-width: 600px) {
+  #gameScreen {
+    position: relative;
+    width: 360px;      
+    height: 640px;     
+    margin: 20px auto; 
+    background-color: #70c5ce;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+}
+
+/* Mobile: full-screen */
+@media (max-width: 599px) {
+  #gameScreen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+  }
+}
+
+#gameCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #70c5ce;
+  border: 1px solid black;
+}
+
+#score {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  color: white;
+  pointer-events: none;
+}
+
+#compliment {
+  font-size: 18px;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 4px 8px;
+  border-radius: 4px;
+
+  /* subtitle positioning */
+  position: absolute !important;
+  bottom: 10px !important;
+  left: 50% !important;
+  top: auto !important;
+  transform: translateX(-50%) !important;
+
+  display: none;
+  pointer-events: none;
+  white-space: nowrap;
+  opacity: 0.8;
+}
